@@ -1,0 +1,57 @@
+// Functions first
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// Then variable overrides
+$main-color: #266067;    // dark
+$alter-color: #DEAC80;  // light
+$back-color: #e4d7b9;   // light
+$custom-color: #3abaa0; // light
+
+
+// Create your own map
+$custom-colors: (
+    "main-color": $main-color,
+    "alter-color": $alter-color,
+    "back-color": $back-color,
+    "custom-color": $custom-color
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Finally import Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.dropdown-item:hover, .dropdown-item:focus{
+    background-color: $back-color;
+}
+
+.dropdown-item:active{
+    background-color:  $main-color;
+}
+
+.dropdown-item.active {
+    background-color:  $main-color;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.footer{
+    min-height: 50px;
+}
+
+.body {
+    height: 100%;
+    background: linear-gradient(
+        rgba(red($back-color), green($back-color), blue($back-color), 0.4),
+        rgba(red($back-color), green($back-color), blue($back-color), 0.9)
+      ),
+    url('https://img.freepik.com/fotos-premium/cuaderno-vacio-fondo-papel-vintage-diseno-su-concepto-trabajo_35956-4040.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150% 100%;
+}
